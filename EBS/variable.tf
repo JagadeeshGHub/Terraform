@@ -11,6 +11,6 @@ variable "AWS_Region" {
 variable "AMI_Region" {
     type = map
     default = {
-        ap-south-1 = "ami-06a0b4e3b7eb7a30"
+        ap-south-1 = "ami-0af25d0df86db00c1"
     }
 }
