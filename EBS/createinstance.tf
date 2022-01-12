@@ -1,5 +1,5 @@
 resource "aws_instance" "myfirstinstance" {
-    ami               = "lookup(var.AMI_Region, var.AWS_Region)"
+    ami               = lookup(var.AMI_Region, var.AWS_Region)
     instance_type     = "t2.micro"
     availability_zone = "ap-south-1a"
 
