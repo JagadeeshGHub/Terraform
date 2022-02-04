@@ -1,7 +1,7 @@
-variable "ACCESS_KEY" {}
+variable "ACCESS_KEY" { }
 
-variable "SECRET_KEY" {}
+variable "SECRET_KEY" { }
 
-variable "REGION" {}
-
-data "aws_availability_zone" "available" {}
+variable "REGION" {
+    default = "ap-south-1"
+ }

@@ -10,6 +10,8 @@ resource "aws_vpc" "Delvrista_VPC" {
     }
 }
 
+data "aws_availability_zone" "available" {}
+
 #Public Subnets
 resource "aws_subnet" "Delvrista-PublicSubnet-1" {
     cidr_block                      = "10.0.1.0/24"
@@ -102,22 +104,22 @@ resource "aws_route_table" "Delvrista-Private-RouteTable" {
 }
 
 #Route Table Association
-resource "aws_route" "routetable-association-1" {
+resource "aws_route_table_association" "routetable-association-1" {
     subnet_id       = aws_subnet.Delvrista-PublicSubnet-1.id
     route_table_id  = aws_route_table.Delvrista-Public-RouteTable.id
 }
 
-resource "aws_route" "routetable-association-2" {
+resource "aws_route_table_association" "routetable-association-2" {
     subnet_id       = aws_subnet.Delvrista-PublicSubnet-2.id
     route_table_id  = aws_route_table.Delvrista-Public-RouteTable.id
 }
 
-resource "aws_route" "routetable-association-3" {
+resource "aws_route_table_association" "routetable-association-3" {
     subnet_id       = aws_subnet.Delvrista-PrivateSubnet-1.id
     route_table_id  = aws_route_table.Delvrista-Private-RouteTable.id
 }
 
-resource "aws_route" "routetable-association-4" {
+resource "aws_route_table_association" "routetable-association-4" {
     subnet_id       = aws_subnet.Delvrista-PrivateSubnet-2.id
     route_table_id  = aws_route_table.Delvrista-Private-RouteTable.id
 }
