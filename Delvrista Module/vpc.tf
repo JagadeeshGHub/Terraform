@@ -112,12 +112,12 @@ resource "aws_route" "routetable-association-2" {
     route_table_id  = aws_route_table.Delvrista-Public-RouteTable.id
 }
 
-resource "aws_route" "routetable-association-1" {
-    subnet_id       = aws_subnet.Delvrista-PrivateSubnet-3.id
+resource "aws_route" "routetable-association-3" {
+    subnet_id       = aws_subnet.Delvrista-PrivateSubnet-1.id
     route_table_id  = aws_route_table.Delvrista-Private-RouteTable.id
 }
 
-resource "aws_route" "routetable-association-2" {
-    subnet_id       = aws_subnet.Delvrista-PrivateSubnet-4.id
+resource "aws_route" "routetable-association-4" {
+    subnet_id       = aws_subnet.Delvrista-PrivateSubnet-2.id
     route_table_id  = aws_route_table.Delvrista-Private-RouteTable.id
 }
