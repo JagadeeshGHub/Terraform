@@ -10,14 +10,14 @@ resource "aws_vpc" "Delvrista_VPC" {
     }
 }
 
-data "aws_availability_zone" "available" {}
+data "aws_availability_zones" "available" {}
 
 #Public Subnets
 resource "aws_subnet" "Delvrista-PublicSubnet-1" {
     cidr_block                      = "10.0.1.0/24"
     vpc_id                          = aws_vpc.Delvrista_VPC.id
     map_customer_owned_ip_on_launch = "true"
-    availability_zone               = data.aws_availability_zone.available.names[0]
+    availability_zone               = data.aws_availability_zones.available.names[0]
 
     tags = {
       "Name" = "Delvrista-PublicSubnet-1"
@@ -28,7 +28,7 @@ resource "aws_subnet" "Delvrista-PublicSubnet-2" {
     cidr_block                      = "10.0.2.0/24"
     vpc_id                          = aws_vpc.Delvrista_VPC.id
     map_customer_owned_ip_on_launch = "true"
-    availability_zone               = data.aws_availability_zone.available.names[1]
+    availability_zone               = data.aws_availability_zones.available.names[1]
 
     tags = {
       "Name" = "Delvrista-PublicSubnet-2"
@@ -40,7 +40,7 @@ resource "aws_subnet" "Delvrista-PrivateSubnet-1" {
     cidr_block                      = "10.0.3.0/24"
     vpc_id                          = aws_vpc.Delvrista_VPC.id
     map_customer_owned_ip_on_launch = "true"
-    availability_zone               = data.aws_availability_zone.available.names[0]
+    availability_zone               = data.aws_availability_zones.available.names[0]
 
     tags = {
       "Name" = "Delvrista-PrivateSubnet-1"
@@ -51,7 +51,7 @@ resource "aws_subnet" "Delvrista-PrivateSubnet-2" {
     cidr_block                      = "10.0.4.0/24"
     vpc_id                          = aws_vpc.Delvrista_VPC.id
     map_customer_owned_ip_on_launch = "true"
-    availability_zone               = data.aws_availability_zone.available.names[1]
+    availability_zone               = data.aws_availability_zones.available.names[1]
 
     tags = {
       "Name" = "Delvrista-PrivateSubnet-2"
